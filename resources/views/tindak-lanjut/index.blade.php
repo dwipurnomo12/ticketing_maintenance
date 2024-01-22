@@ -73,12 +73,26 @@
                                                         </form>
 
                                                         <form method="POST"
-                                                            action="/tindak-lanjut/{{ $laporan->id }}/reject">
+                                                            action="/tindak-lanjut/{{ $laporan->id }}/reject"
+                                                            class="rejection-form">
                                                             @csrf
-                                                            <button type="submit" class="btn btn-danger btn-confirm">
+                                                            <button type="button" class="btn btn-danger btn-confirm"
+                                                                onclick="showRejectionForm({{ $laporan->id }})">
                                                                 <i class="fas fa-solid fa-x"></i>
                                                             </button>
+
+                                                            <div id="rejectionReason-{{ $laporan->id }}"
+                                                                class="rejection-reason  mt-3" style="display: none;">
+                                                                <input type="hidden" value="{{ $laporan->id }}"
+                                                                    name="laporan_id">
+                                                                <label for="reason">Alasan Penolakan:</label>
+                                                                <textarea name="pesan" id="reason-{{ $laporan->id }}" required></textarea>
+
+                                                                <button type="submit"
+                                                                    class="btn btn-danger float-right">Tolak</button>
+                                                            </div>
                                                         </form>
+
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -134,5 +148,12 @@
                 paging: true
             });
         });
+    </script>
+
+    <script>
+        function showRejectionForm(laporanId) {
+            var rejectionForm = document.getElementById('rejectionReason-' + laporanId);
+            rejectionForm.style.display = 'block';
+        }
     </script>
 @endsection

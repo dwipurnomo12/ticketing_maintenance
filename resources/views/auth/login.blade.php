@@ -8,9 +8,13 @@
                     <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
 
                         <div class="card card-primary">
-                            <div class="card-header">
-                                <h4>Login</h4>
+                            <div class="logo mx-auto mt-3">
+                                <img src="/assets/img/login.png" alt="Logo instansi" style="width: 150px; height: 150px;">
                             </div>
+                            <div class="card-header">
+                                <h4 class="mx-auto">Login</h4>
+                            </div>
+
 
                             <div class="card-body">
 

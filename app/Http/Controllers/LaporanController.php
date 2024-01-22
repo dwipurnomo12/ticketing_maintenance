@@ -36,13 +36,14 @@ class LaporanController extends Controller
             'nama'      => 'required',
             'instansi'  => 'required',
             'insiden'   => 'required',
-            'file'      => 'required|mimes:pdf,doc,docx'
+            'file'      => 'required|mimes:pdf|max:2048'
         ], [
             'nama.required'     => 'Tidak boleh kosong !',
             'instansi.required' => 'Tidak boleh kosong !',
             'insiden.required'  => 'Tidak boleh kosong !',
             'file.required'     => 'Tidak boleh kosong !',
-            'file.mimes'        => 'File yang di izinkan adalah pdf,doc,docx'
+            'file.mimes'        => 'File yang di izinkan adalah pdf',
+            'file.max'          => 'Maksimal suze file pdf adalah 2 MB'
         ]);
 
         if ($validator->fails()) {

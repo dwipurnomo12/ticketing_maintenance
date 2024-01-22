@@ -1,6 +1,7 @@
 <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-        <a href="index.html">Ticketing Website</a>
+        <img src="/assets/img/login.png" alt="" style="width: 50px">
+        <a href="/">Ticketing Website</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
         <a href="index.html">TW</a>

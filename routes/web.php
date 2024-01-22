@@ -28,11 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::group(['middleware'  => 'CheckRole:superadmin,admin,agen,devops'], function () {
         Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::get('/dashboard', [HomeController::class, 'index']);
-    });
-
-    Route::group(['middleware'  => 'CheckRole:superadmin,admin,agen,devops'], function () {
-        Route::get('/', [HomeController::class, 'index'])->name('home');
-        Route::get('/dashboard', [HomeController::class, 'index']);
 
         Route::resource('/laporan', LaporanController::class);
     });

@@ -95,12 +95,19 @@ class UsersController extends Controller
         ]);
 
         if ($request->filled('password')) {
-            $validator->addRules([
-                'password' => 'required|min:4',
-            ])->addMessages([
-                'password.required' => 'Tidak boleh kosong !',
-                'password.min'      => 'Minimal 4 Karakter !',
+            $passwordValidator = Validator::make($request->all(), [
+                'password'        => 'required|min:4',
+                'confirmPassword' => 'required|same:password',
+            ], [
+                'password.required'         => 'Tidak boleh kosong !',
+                'password.min'              => 'Minimal 4 Karakter !',
+                'confirmPassword.required'  => 'Konfirmasi password tidak boleh kosong !',
+                'confirmPassword.same'      => 'Konfirmasi password harus sama dengan password',
             ]);
+
+            if ($passwordValidator->fails()) {
+                return back()->withErrors($passwordValidator)->withInput();
+            }
         }
 
         if ($validator->fails()) {
